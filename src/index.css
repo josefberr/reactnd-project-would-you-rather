@@ -1,0 +1,137 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  color: #252525;
+}
+
+button .answered {
+  color: yellow;
+}
+
+.center {
+  text-align: center;
+}
+
+.nav-container {
+  background-color: black;
+  display: flex;
+	align-items: center;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+.nav-container div {
+  flex-direction: column;
+  background-color: palegreen;
+  position: relative;
+  margin: 0.5rem 0 0.5rem 0;
+  padding: 0.5rem;
+}
+
+.login-box {
+  width: 100%;
+  max-width: 250px;
+  padding: 10px;
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0 auto;
+  border: 1px solid #dad7d7;
+  border-radius: 5px;
+}
+
+.login-box span,
+.user-select {
+  float: left;
+  margin: 0 auto 10px auto;
+  flex: 1 90%;
+}
+
+.user-select select {
+  float: right;
+  width: 160px;
+  height: 30px;
+  margin: 20px 0px 10px 10px;
+}
+
+.login-box button {
+  margin: 0 auto;
+}
+
+.question {
+  text-decoration: none;
+}
+
+.answered-questions {
+  border: 3px solid green;
+}
+
+.not-answered-questions {
+  border: 3px solid orange;
+  padding: 3rem 0 3rem 0;
+  margin: 1rem 0 1rem 0;
+}
+
+li {
+  list-style-type: none;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.question {
+  width: 280px;
+  padding: 10px;
+  display: flex;
+  flex-flow: wrap;
+  margin: 10px auto;
+  border: 1px solid #dad7d7;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.question-list {
+  display: flex;
+  flex-flow: column wrap;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  margin: -8px;
+  padding: 0;
+}
+
+.question-list li {
+  margin: 0 8px -10px 8px;
+  padding: 0;
+}
+
+.avatar-thumb {
+  height: 20px;
+  border-radius: 15px;
+  margin: 0 5px 0 10px;
+}
+
+.avatar {
+  height: 50px;
+  border-radius: 25px;
+  margin: 10px;
+}
+
+div.option {
+  width: 40%;
+  position: relative;
+}
+
+div.option.button {
+  width: 33%;
+}
+
+button.question-option-selected {
+  font-weight: bold;
+  background-color: yellow;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
