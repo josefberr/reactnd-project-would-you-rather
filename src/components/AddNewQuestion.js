@@ -49,29 +49,27 @@ class AddNewQuestion extends Component {
     return (
       <div>
         <h3 className='center'>Add new Question</h3>
-        <div className='question'>
+        <div className='question-box'>
           <img
             src={`/${users[authenticatedUser].avatarURL}`}
             alt={authenticatedUser}
             className='avatar'
           />
-          <span>
-            Would You Rather...
-          </span>
           <form onSubmit={(event) => this.handleSubmit(event)}>
+          <p>Would You Rather...</p>
             <div className="option">
               <textarea
+                placeholder='Option one'
                 value={optionOne}
                 onChange={(event) => this.handleChange(event, 1)}
               />
-              <span className='hint'>Option One</span>
             </div>
-            <div className="option opt-offset">
+            <div className="option">
               <textarea
+                placeholder='Option two'
                 value={optionTwo}
                 onChange={(event) => this.handleChange(event, 2)}
               />
-              <span className='hint'>Option Two</span>
             </div>
             <button
               className='btn'

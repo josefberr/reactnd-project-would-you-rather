@@ -5,6 +5,12 @@ body {
   color: #252525;
 }
 
+button {
+  border-radius: 5px;
+  min-height: 2rem;
+  min-width: 40%;
+}
+
 button .answered {
   color: yellow;
 }
@@ -27,10 +33,16 @@ span.author {
 
 .nav-container div {
   flex-direction: column;
-  background-color: palegreen;
+  background-color: black;
   position: relative;
   margin: 0.5rem 0 0.5rem 0;
   padding: 0.5rem;
+}
+
+.nav-container div a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 .login-box {
@@ -118,17 +130,72 @@ li {
 
 .avatar {
   height: 50px;
+  max-width: 50px;
   border-radius: 25px;
   margin: 10px;
 }
 
-div.option {
+ul.user-list {
+  padding: 0;
+}
+
+ul.user-list img {
+  height: 30px;
+  margin: 0 2rem 0 0;
+  padding: 0;
+}
+
+div.user-list-container {
+  display: flex;
+  flex-flow: column wrap;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  background-color: lightgray;
+  padding: 1rem;
+}
+
+div.user {
   width: 40%;
+}
+
+div.user-stats {
+  width: 40%;
+}
+div.user-stats p {
+  margin: 1rem 0;
+}
+
+div.option {
+  width: 100%;
+  padding: 0.5rem 1rem 0 1rem;
   position: relative;
 }
 
-div.option.button {
-  width: 33%;
+div.option button {
+  width: 100%;
+}
+
+div.stats {
+  width: 80%;
+  padding: 1rem;
+}
+
+div.vote1 {
+  border: 1px solid lightblue;
+  background-color: lightblue;
+  color: black;
+  font-weight: bold;
+  margin: 0.5rem;
+}
+
+div.vote2 {
+  border: 1px solid lightcoral;
+  background-color: lightcoral;
+  font-weight: bold;
+  color: black;
+  margin: 0.5rem;
 }
 
 div.question-box {
@@ -139,6 +206,11 @@ div.question-box {
     border: 1px solid #dad7d7;
     border-radius: 5px;
     cursor: pointer;
+    padding-bottom: 10px;
+}
+
+div.question-box.singe-question span {
+  padding: 1rem 0 0 1rem;
 }
 
 div.option-box {
@@ -148,7 +220,8 @@ div.option-box {
 
 button.question-option-selected {
   font-weight: bold;
-  background-color: yellow;
+  color: white;
+  background-color: black;
 }
 
 button.btn-active {

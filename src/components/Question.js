@@ -26,25 +26,24 @@ class Question extends Component {
     
     const votesOptionOne = question.optionOne.votes.length
     const votesOptionTwo = question.optionTwo.votes.length
+    const totalVotes = votesOptionOne + votesOptionTwo
     
     //const { showDetail } = this.state
 
     console.log("QUESTION" + question.id, question)
-    if (question.id === null) {
+    if (!question) {
       return <Redirect to="/404" />;
     }
 
     return (
-        <div>
         <Link to={`/questions/${question.id}`} className='question'>
+        <div className='question-box singe-question'>
         <img
           src={`/${users[question.author].avatarURL}`}
           alt={question.author}
           className='avatar'
         />
-        <div>
-
-        <span>{question.author} asked. Would You Rather...</span>
+        <span>{question.author} asked. <br/>Would You Rather...</span>
         <div className='option'>
           <button
             className={
@@ -55,6 +54,7 @@ class Question extends Component {
                 : ''
             }
             onClick={() => this.handleOptionClicked(1)}
+            disabled={answered}
           >
             {question.optionOne.text}
           </button>
@@ -69,16 +69,19 @@ class Question extends Component {
                 : 'question-option-two'
             }
             onClick={() => this.handleOptionClicked(2)}
+            disabled={answered}
           >
             {question.optionTwo.text}
           </button>
         </div>
-        </div>
-      
-        {answered && <div className='stats'>Votes: {votesOptionOne} : {votesOptionTwo}
+        {answered && <div className='stats'>
+              Votes: 
+            <div className='vote1' style={{width: votesOptionOne/totalVotes*100 + '%'}}>{votesOptionOne}</div>
+            <div className='vote2' style={{width: votesOptionTwo/totalVotes*100 + '%'}}>{votesOptionTwo}</div>
           </div>}
+        
+        </div>
         </Link>
-      </div>
     );
   }
 }

@@ -27,9 +27,9 @@ class App extends Component {
             <Nav />
               <div>
                 <Switch>
+                  <ProtectedRoute path='/' exact component={Dashboard} useruserLoggedIn={useruserLoggedIn} />
                   <Route path='/login' exact component={Login} />
                   <Route path='/questions/bad_id' exact component={NotFound}/>
-                  <ProtectedRoute path='/' exact component={Dashboard} useruserLoggedIn={useruserLoggedIn} />
                   <ProtectedRoute path='/add' exact component={AddNewQuestion} useruserLoggedIn={useruserLoggedIn} />
                   <ProtectedRoute path='/questions/:id' exact component={QuestionOverview} useruserLoggedIn={useruserLoggedIn} />
                   <ProtectedRoute path='/leaderboard' exact component={Leaderboard} useruserLoggedIn={useruserLoggedIn} />

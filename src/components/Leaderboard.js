@@ -17,16 +17,18 @@ function Leaderboard(props) {
       <ul className='user-list'>
         {sortedUserArray.map((user) => (
           <li key={user.id}>
-            <div className='user'>
-              <span>{user.name}</span>
-              <img
-                src={user.avatarURL}
-                alt={user.name}
-                className='avatar'
-              />
-              <div className='user-stats'>
-                <p>Asked: {user.questions.length}</p>
-                <p>Answered: {Object.keys(user.answers).length}</p>
+            <div className='user-list-container'>
+              <div className='user'>
+                <img
+                  src={user.avatarURL}
+                  alt={user.name}
+                  className='avatar'
+                />
+                {user.name}
+              </div>
+              <div className='user-stats'> 
+                <p>Total Points: {user.questions.length + Object.keys(user.answers).length}</p>
+                <p>Asked: {user.questions.length} / Answered: {Object.keys(user.answers).length}</p>
               </div>
             </div>
           </li>
