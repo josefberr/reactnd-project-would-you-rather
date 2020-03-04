@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Question from './Question';
+//import Question from './Question';
 import QuestionNoDetail from './QuestionNoDetail'
 
 class Dashboard extends Component {

@@ -9,7 +9,7 @@ import Nav from './Nav';
 import AddNewQuestion from './AddNewQuestion';
 import NotFound from './404-notFound';
 import QuestionOverview from './QuestionOverview';
-import ProtectedRoute from '../utils/ProtectedRoute';
+import ProtectedRoute from '../shared/ProtectedRoute';
 
 class App extends Component {
   componentDidMount() {
@@ -28,10 +28,12 @@ class App extends Component {
               <div>
                 <Switch>
                   <Route path='/login' exact component={Login} />
+                  <ProtectedRoute path='/questions/bad_id' exact component={NotFound}/>
                   <ProtectedRoute path='/' exact component={Dashboard} useruserLoggedIn={useruserLoggedIn} />
                   <ProtectedRoute path='/add' exact component={AddNewQuestion} useruserLoggedIn={useruserLoggedIn} />
                   <ProtectedRoute path='/questions/:id' exact component={QuestionOverview} useruserLoggedIn={useruserLoggedIn} />
                   <ProtectedRoute path='/leaderboard' exact component={Leaderboard} useruserLoggedIn={useruserLoggedIn} />
+                  <ProtectedRoute path='/404-notfound' exact component={NotFound} />
                   <Route component={NotFound} />
                 </Switch>
               </div>

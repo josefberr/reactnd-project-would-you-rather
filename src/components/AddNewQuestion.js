@@ -42,6 +42,7 @@ class AddNewQuestion extends Component {
     console.log(users)
 
     if (toHome === true) {
+      console.log("YOU SHOULD BE REDIRECTED TO HOME")
       return <Redirect to='/' />
     }
 

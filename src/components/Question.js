@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions/questions';
 
@@ -17,7 +17,7 @@ class Question extends Component {
   }
 
   render() {
-    console.log("GOT SOME DATA..... " + this.props)
+    //console.log("GOT SOME DATA..... " + this.props)
 
     const { authenticatedUser, question, users } = this.props
 
@@ -27,7 +27,12 @@ class Question extends Component {
     const votesOptionOne = question.optionOne.votes.length
     const votesOptionTwo = question.optionTwo.votes.length
     
-    const { showDetail } = this.state
+    //const { showDetail } = this.state
+
+    console.log("QUESTION" + question.id, question)
+    if (question.id === null) {
+      return <Redirect to="/questions/bad_id" />;
+    }
 
     return (
         <div>

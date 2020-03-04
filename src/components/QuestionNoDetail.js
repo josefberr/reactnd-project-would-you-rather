@@ -14,7 +14,7 @@ class QuestionNoDetail extends Component {
   }
 
   render() {
-    console.log("GOT SOME DATA..... " + this.props)
+    //console.log("GOT SOME DATA..... " + this.props)
 
     const { question, users } = this.props
 
