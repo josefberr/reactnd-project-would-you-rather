@@ -42,12 +42,11 @@ class AddNewQuestion extends Component {
     console.log(users)
 
     if (toHome === true) {
-      console.log("YOU SHOULD BE REDIRECTED TO HOME")
       return <Redirect to='/' />
     }
 
     return (
-      <div>
+      <div className='add-new-question'>
         <h3 className='center'>Add new Question</h3>
         <div className='question-box'>
           <img

@@ -8,7 +8,6 @@ function QuestionOverview(props) {
   const question = questions[id];
 
   if(!question) {
-    console.log("SHOULD REDIRECT TO 404!")
     return <Redirect from='*' to='/questions/bad_id' />
   }
 

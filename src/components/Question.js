@@ -4,10 +4,7 @@ import { connect } from 'react-redux';
 import * as actions from '../actions/questions';
 
 class Question extends Component {
-  state = {
-    showDetail: false,
-  }
-
+  
   handleOptionClicked = function(option) {
     console.log(this.props)
     const { answerQuestion, authenticatedUser, question } = this.props
@@ -17,8 +14,6 @@ class Question extends Component {
   }
 
   render() {
-    //console.log("GOT SOME DATA..... " + this.props)
-
     const { authenticatedUser, question, users } = this.props
 
     const answers = Object.keys(users[authenticatedUser].answers)
@@ -27,8 +22,6 @@ class Question extends Component {
     const votesOptionOne = question.optionOne.votes.length
     const votesOptionTwo = question.optionTwo.votes.length
     const totalVotes = votesOptionOne + votesOptionTwo
-    
-    //const { showDetail } = this.state
 
     console.log("QUESTION" + question.id, question)
     if (!question) {

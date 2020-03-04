@@ -213,6 +213,12 @@ div.question-box.singe-question span {
   padding: 1rem 0 0 1rem;
 }
 
+div.add-new-question {
+  align-items: center;
+  margin: auto;
+  width: 80%;
+}
+
 div.option-box {
   border: 1px solid blue;
   margin: 5px 5px 5px 5px;

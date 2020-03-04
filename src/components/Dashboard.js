@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-//import Question from './Question';
 import QuestionNoDetail from './QuestionNoDetail'
 
 class Dashboard extends Component {
@@ -20,9 +19,7 @@ class Dashboard extends Component {
     const { filterAnswered } = this.state;
     const { authenticatedUser, questions } = this.props;
     const questionsArray = Object.keys(questions).map((key) => questions[key]);
-    //let { answeredQuestions, unAnsweredQuestions } = []
-    
-    
+     
     const questionsToShow = questionsArray.filter((question) => {
       if (filterAnswered) {
         return (question.optionOne.votes.indexOf(authenticatedUser) < 0) && (question.optionTwo.votes.indexOf(authenticatedUser) < 0 )
@@ -68,23 +65,6 @@ class Dashboard extends Component {
         </div> 
       </div>
     );
-    /*
-            {
-          sortedAnsweredQuestions.length === 0 ? <span>You have no questions answered yet</span> : ''
-        }
-        <div className='answered-questions'>
-            <h3>Your answered questions</h3>
-            <ul className='question-list'>
-              {
-                  sortedAnsweredQuestions.map((question) => (
-                  <li key={question.id}>
-                    <Question question={question} />
-                  </li>
-                ))
-              }
-            </ul>
-        </div>
-    */
   }
 }
 

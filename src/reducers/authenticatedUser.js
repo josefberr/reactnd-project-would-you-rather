@@ -5,7 +5,6 @@ export default function authenticatedUser(state = null, action) {
   switch (action.type) {
 
     case SET_AUTH_USER:
-      console.log('action.id: ', action.id)
       return action.id;
 
     case CLEAR_AUTH_USER:
