@@ -7,14 +7,15 @@ function QuestionOverview(props) {
   const { id, questions } = props;
   const question = questions[id];
 
-  if(question == null) {
-    return <Redirect from='*' to='/not-found' />
+  if(!question) {
+    console.log("SHOULD REDIRECT TO 404!")
+    return <Redirect from='*' to='/questions/bad_id' />
   }
 
   return (
     <div>
       <h3 className='center'>Question</h3>
-      {question &&
+      {
         <Question question={question} />
       }
     </div>

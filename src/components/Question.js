@@ -31,7 +31,7 @@ class Question extends Component {
 
     console.log("QUESTION" + question.id, question)
     if (question.id === null) {
-      return <Redirect to="/questions/bad_id" />;
+      return <Redirect to="/404" />;
     }
 
     return (

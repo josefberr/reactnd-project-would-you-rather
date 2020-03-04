@@ -20,7 +20,7 @@ class Login extends Component {
     });
   }
 
-  handleLogin = function(event) {
+  handleLogin = function() {
     const { userId } = this.state;
     const { dispatch } = this.props;
 
@@ -44,10 +44,9 @@ class Login extends Component {
     const selected = userId ? userId : -1;
     const avatar = userId ? users[userId].avatarURL : 'blank.jpg';
 
-    const redirect = goToStart ? '/' : history.location.state;
-  
+    const redirect = history.location.state;
     if (goToStart) {
-      return <Redirect to={redirect} push={goToStart} />
+      return <Redirect to={redirect ? redirect : '/'} />
     }
 
     return (
