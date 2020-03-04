@@ -4,25 +4,30 @@ import { connect } from 'react-redux';
 import * as actions from '../actions/questions';
 
 class Question extends Component {
+  state = {
+    showDetail: false,
+  }
+
   handleOptionClicked = function(option) {
     console.log(this.props)
-    const { answerQuestion, authenticatedUser, question } = this.props;
-    const answer = option === 1 ? 'optionOne' : 'optionTwo';
+    const { answerQuestion, authenticatedUser, question } = this.props
+    const answer = option === 1 ? 'optionOne' : 'optionTwo'
 
-    answerQuestion(authenticatedUser, question.id, answer);
+    answerQuestion(authenticatedUser, question.id, answer)
   }
 
   render() {
-    console.log("GOT SOME DATA..... " + this.props);
+    console.log("GOT SOME DATA..... " + this.props)
 
-    const { authenticatedUser, question, users } = this.props;
+    const { authenticatedUser, question, users } = this.props
 
-    const answers = Object.keys(users[authenticatedUser].answers);
-    const answered = answers.indexOf(question.id) > -1 ? true : false;
+    const answers = Object.keys(users[authenticatedUser].answers)
+    const answered = answers.indexOf(question.id) > -1 ? true : false
     
-    const votesOptionOne = question.optionOne.votes.length;
-    const votesOptionTwo = question.optionTwo.votes.length;
-    const votesTotal = votesOptionOne + votesOptionTwo;
+    const votesOptionOne = question.optionOne.votes.length
+    const votesOptionTwo = question.optionTwo.votes.length
+    
+    const { showDetail } = this.state
 
     return (
         <div>
@@ -33,6 +38,7 @@ class Question extends Component {
           className='avatar'
         />
         <div>
+
         <span>{question.author} asked. Would You Rather...</span>
         <div className='option'>
           <button
@@ -64,7 +70,7 @@ class Question extends Component {
         </div>
         </div>
       
-        {answered && <div className='stats'>Votes: {question.optionOne.votes.length} : {question.optionTwo.votes.length}
+        {answered && <div className='stats'>Votes: {votesOptionOne} : {votesOptionTwo}
           </div>}
         </Link>
       </div>

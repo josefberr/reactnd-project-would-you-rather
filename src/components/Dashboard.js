@@ -1,51 +1,75 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Question from './Question';
+import QuestionNoDetail from './QuestionNoDetail'
 
 class Dashboard extends Component {
+  state = {
+      filterAnswered: true,
+   }
 
+   handleFilterClicked = function(hide) {
+    this.setState(function() {
+      return {
+        filterAnswered: hide
+      };
+    });
+  }
 
   render() {
+    const { filterAnswered } = this.state;
     const { authenticatedUser, questions } = this.props;
     const questionsArray = Object.keys(questions).map((key) => questions[key]);
-
-
-
-    answeredQuestions = questionsArray.filter((question) => {
-      return (question.optionOne.votes.indexOf(authenticatedUser) >= 0 ||  question.optionTwo.votes.indexOf(authenticatedUser) >= 0 )
+    //let { answeredQuestions, unAnsweredQuestions } = []
+    
+    
+    const questionsToShow = questionsArray.filter((question) => {
+      if (filterAnswered) {
+        return (question.optionOne.votes.indexOf(authenticatedUser) < 0) && (question.optionTwo.votes.indexOf(authenticatedUser) < 0 )
+      } 
+      else {
+        return (question.optionOne.votes.indexOf(authenticatedUser) >= 0 ||  question.optionTwo.votes.indexOf(authenticatedUser) >= 0)
+      }
     });
 
-    unAnsweredQuestions = questionsArray.filter((question) => {
-      return (question.optionOne.votes.indexOf(authenticatedUser) < 0) && (question.optionTwo.votes.indexOf(authenticatedUser) < 0 )
-    });
-
-
-    const sortedAnsweredQuestions = answeredQuestions.sort((a, b) => b.timestamp - a.timestamp);
-    const sortedUnansweredQuestions = unAnsweredQuestions.sort((a, b) => b.timestamp - a.timestamp);
-
-    console.log("ANSWERED BY USER:" + sortedAnsweredQuestions)
-    console.log("NOT ANSWERED BY USER:" + sortedUnansweredQuestions)
-
+    const sortedQuestions = questionsToShow.sort((a, b) => b.timestamp - a.timestamp);
+    
     return (
-      <div>
+      <div className='center'>
         <h3 className='center'>Dashboard</h3>
+        <button 
+          onClick={() => this.handleFilterClicked(false)}
+          className={!filterAnswered ? 'btn-active' : 'btn-inactive'}
+        >
+          Answered questions
+        </button>
+
+        <button 
+          onClick={() => this.handleFilterClicked(true)}
+          className={filterAnswered ? 'btn-active' : 'btn-inactive'}
+        >
+          Open polls</button>
+
+        <div className='questions-container'>
+        <h3>{filterAnswered && 'Open '}Questions</h3>
         {
-          sortedUnansweredQuestions.length === 0 ? <span>You have no questions left to answer</span> : ''
+          sortedQuestions.length === 0 ? <p>no polls found</p> : ''
         }
-        <div className='not-answered-questions'>
-            <h3>Your available questions</h3>
             <ul className='question-list'>
               {
-                  sortedUnansweredQuestions.map((question) => (
+                  sortedQuestions.map((question) => (
                   <li key={question.id}>
-                    <Question question={question} />
+                    
+                    <QuestionNoDetail question={question} detail={false} />
                   </li>
                   ))
               }
             </ul>
         </div> 
-        
-        {
+      </div>
+    );
+    /*
+            {
           sortedAnsweredQuestions.length === 0 ? <span>You have no questions answered yet</span> : ''
         }
         <div className='answered-questions'>
@@ -60,8 +84,7 @@ class Dashboard extends Component {
               }
             </ul>
         </div>
-      </div>
-    );
+    */
   }
 }
 

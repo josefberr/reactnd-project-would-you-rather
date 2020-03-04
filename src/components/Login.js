@@ -45,6 +45,7 @@ class Login extends Component {
     const avatar = userId ? users[userId].avatarURL : 'blank.jpg';
 
     const redirect = goToStart ? '/' : history.location.state;
+  
     if (goToStart) {
       return <Redirect to={redirect} push={goToStart} />
     }
@@ -61,7 +62,7 @@ class Login extends Component {
               className='avatar'
             />
             <select value={selected} onChange={(event) => this.handleSelectionChanged(event)}>
-              <option value={-1} disabled>Select user...</option>
+              <option value={-1} disabled>Select user</option>
               {Object.keys(users).map(function(key) {
                 return (
                   <option value={users[key].id} key={key}>{users[key].id}</option>

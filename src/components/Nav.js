@@ -16,7 +16,9 @@ function Nav(props) {
       <div className='nav'>
         {userLoggedIn 
             ? 
-              <NavLink to='/login' exact activeClassName='active'>Logout<img src={avatar} alt={authenticatedUser} title={authenticatedUser} className='avatar-thumb' /></NavLink>
+              <NavLink to='/login' exact activeClassName='active'><img src={avatar} alt={authenticatedUser} title={authenticatedUser} className='avatar-thumb' />
+              Logout {authenticatedUser}
+              </NavLink>
             : 
               <NavLink to='/login' exact activeClassName='active'>
                 Login
