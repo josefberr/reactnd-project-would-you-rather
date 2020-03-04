@@ -6,7 +6,6 @@ import * as actions from '../actions/questions';
 class QuestionNoDetail extends Component {
 
   handleOptionClicked = function(option) {
-    console.log(this.props)
     const { answerQuestion, authenticatedUser, question } = this.props
     const answer = option === 1 ? 'optionOne' : 'optionTwo'
 
@@ -36,7 +35,6 @@ class QuestionNoDetail extends Component {
 }
 
 function mapStateToProps({ authenticatedUser, users }) {
-  console.log(actions)
   return {
     authenticatedUser,
     users,

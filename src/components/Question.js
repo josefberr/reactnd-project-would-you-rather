@@ -6,7 +6,6 @@ import * as actions from '../actions/questions';
 class Question extends Component {
   
   handleOptionClicked = function(option) {
-    console.log(this.props)
     const { answerQuestion, authenticatedUser, question } = this.props
     const answer = option === 1 ? 'optionOne' : 'optionTwo'
 
@@ -23,7 +22,6 @@ class Question extends Component {
     const votesOptionTwo = question.optionTwo.votes.length
     const totalVotes = votesOptionOne + votesOptionTwo
 
-    console.log("QUESTION" + question.id, question)
     if (!question) {
       return <Redirect to="/404" />;
     }
@@ -80,7 +78,6 @@ class Question extends Component {
 }
 
 function mapStateToProps({ authenticatedUser, users }) {
-  console.log(actions)
   return {
     authenticatedUser,
     users,

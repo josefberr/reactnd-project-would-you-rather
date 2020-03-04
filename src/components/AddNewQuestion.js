@@ -38,8 +38,6 @@ class AddNewQuestion extends Component {
   render() {
     const { optionOne, optionTwo, toHome } = this.state;
     const { authenticatedUser, users } = this.props;
-    console.log(authenticatedUser)
-    console.log(users)
 
     if (toHome === true) {
       return <Redirect to='/' />
